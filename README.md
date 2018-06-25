@@ -3,9 +3,11 @@
 A definitive guide to setting up a new work environment
 
 ### Terminal
-- Iterm2
+- Iterm2 (MacOS) 
 	- Load settings from .plist file
 	- Default profile `.json` included, but may not be necessary
+- Guake (Linux Distros)
+	- Use settings file (Coming soon) 
 
 ### Shell
 - zsh
@@ -46,11 +48,10 @@ A definitive guide to setting up a new work environment
 - Slack
 - Chrome
 
-### Mac Apps
+### More macOS Apps
 
 - Amethyst
 - Things
-
 
 -----
 
