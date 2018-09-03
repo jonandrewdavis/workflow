@@ -62,3 +62,14 @@ A definitive guide to setting up a new work environment
 ### Startup:
 
 Guake, xmodmap -c ./Xmodmap
+
+```
+in ~/
+xmodmap -c .Xmodmap
+```
+```
+redshift 3000:3000
+```
+```
+https://wiki.archlinux.org/index.php/Libinput
+```
