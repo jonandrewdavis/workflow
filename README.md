@@ -101,10 +101,3 @@ Sidebar Theme:
 ```
 
 This may need to be re-added when Slack updates.
-
-Consider:
-
-- JAD
-- AD1
-- AD12
-- Verizon
