@@ -126,6 +126,13 @@ alias sublime='"/mnt/c/Program Files/Sublime Text 3/subl.exe"'
 
 ```
 
+AWS was a pain, but using apk add worked
+```
+sudo apk update
+sudo apk add aws-cli
+```
+
+
 #### Musings / Notes: 
 
 If only there was a way to get the windows key to act like Mac's command key, for switching tabs... would need to be CRTL for some things, ALT for ALT Tab.
