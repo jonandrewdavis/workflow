@@ -86,6 +86,87 @@ We'll be getting:
 - Windows Terminal
 - ZSH
 
+First, we'll need to get WSL2, turn it on, and update it.
+We'll use the "manual" section of this guide. https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+- Enable the WSL feature, starting a CMD prompt (preferabbly right click and run as administrator to prevent permission issues):
+```
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+You may also do this via the "Windows Feature" GUI, by searching and checking the box.
+- Next, we'll need to enable this for Alpine specifically
+```
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+- Download and install the kernel update (again, required for Alpine)
+https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+- Restart your machine. I found out the hard way that this is the point where a restart seems to be required. It's also a good precaution to avoid errors.
+- Open up CMD again:
+```
+wsl --set-default-version 2
+```
+- Go to the Windows Store and search: Alpine
+- Install
+- Launch, provide `Enter new UNIX username` and password, remember this password, we'll use it to gain root later.
+- Go to the Windows Store, get the Windows Terminal
+- Open it, click the arrow in the top menu, go to settings,
+- Edit the JSON to use your new Alpine guid as the default
+- Open Windows Terminal, you should have an Alpine env running, try `ls`
+- We can't really do anything yet, since our user has no permissions, by intention! apk update, fails, You can't even sudo: sudo apk update
+- "whoami"
+- Let's follow: This excellent guide, https://docs.alpinelinux.org/user-handbook/0.1a/Working/post-install.html
+
+```
+adduser -h /home/alrund -s /bin/ash jon
+```
+Enter password, then:
+```
+su -l root 
+apk add sudo 
+echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel 
+adduser alrund wheel # put in your user name
+```
+- Start a new session to get out of root. Do "whoami"
+- Time for ZSH and other essential packages. Alpine uses "apk" in this format:
+```
+sudo apk update
+sudo apk add zsh
+```
+- Should go fast: OK: 17 MiB in 20 packages
+- More
+```
+sudo apk add curl
+sudo apk add git
+sudo apk add openssh-keygen
+sudo apk add openssh-client
+sudo apk add zsh-vcs
+```
+
+- Now the fun part: Ohmyzsh and all the good stuff
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+- From here it should be identical to the guide, you'll need the zsh-vcs, and you may need to right click the font  install and say "run in cmd"
+
+
+
+```
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment green black "%(!.%{%F{yellow}%}.)(╯°□°)╯︵ ┻━┻"
+  fi
+}
+
+alias sublime='"/mnt/c/Program Files/Sublime Text 3/subl.exe"'
+
+alias open='"explorer.exe"'
+```
+
+Neofetch
+
+
+# ScratchPad
+----------------------------------------------------------------------------
 
 Setting up WSL2, Windows Terminal and oh-my-zsh `https://blog.nillsf.com/index.php/2020/02/17/setting-up-wsl2-windows-terminal-and-oh-my-zsh/`
 Alternative guide: https://docs.microsoft.com/en-us/windows/wsl/install-win10
@@ -106,16 +187,20 @@ Go here: https://aka.ms/wsl2kernel
 Download the latest package:
     WSL2 Linux kernel update package for x64 machines
 ```
+*** IMPORTANT: Restart here ***
+
 Sets Default:
 wsl --set-default-version 2
 
-Note: These steps could be transposed to avoid the kernal update.
-
-looks like when converting or setting as default i Need:
-Elevated Command prompt, right click, run as admin:
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+Troubleshooting msgs from my CMD:
+```
+C:\Users\jonan>wsl --set-version Alpine 2
+Conversion in progress, this may take a few minutes...
+For information on key differences with WSL 2 please visit https://aka.ms/wsl2
+Conversion complete.
 ```
 
+```
 Deployment Image Servicing and Management tool
 Version: 10.0.19041.844
 
@@ -129,6 +214,8 @@ C:\Windows\system32>
 ```
 
 
+  
+
 Microsoft Docs for WSL `https://docs.microsoft.com/en-us/windows/wsl/install-win10`
 
 Resource:  `https://nickjanetakis.com/blog/using-wsl-and-mobaxterm-to-create-a-linux-dev-environment-on-windows#wsl-conemu-and-mobaxterm-to-the-rescue`
@@ -136,6 +223,8 @@ Resource:  `https://nickjanetakis.com/blog/using-wsl-and-mobaxterm-to-create-a-l
 Tricky: make sure you get the users set up properly, and password protect root. Add the new user to the sudos.
 
 Fix Agnoster error: `theme_precmd:1: vcs_info: function definition file not found`
+`prompt_git:40: vcs_info: function definition file not found`
+
 ```
 apk add zsh-vcs
 ```
@@ -151,12 +240,14 @@ sudo apk add
 ```
 these, amoung others:
 ```
-git
-openssh-keygen
+sudo apk add git
+sudo apk add openssh-keygen
+sudo apk add openssh-client
+
 ```
 More
 ```
-sudo apk --update add openssh-client
+sudo apk add openssh-client
 ```
 
 Sublime Shortcut and Command line fun for windows
