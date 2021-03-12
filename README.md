@@ -140,6 +140,26 @@ If only there was a way to get the windows key to act like Mac's command key, fo
 Some ZSH Cheats
 https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet
 
+TO DO: Clean up all this WSL stuff and write a blog post about WSL
+windows terminal, zsh, set up on machine, boot time tweaks and video of machine. O/C blog post?
 
 
-TO DO: Clean up all this WSL stuff.
+### Construction of New Blog
+
+Requirements:
+
+- Static Site generator, taking posts from markdown to html/css/js
+- Fast
+- Easy build process
+- New posts should be as easy as adding a .md
+- Needs to include images
+- MUST have syntax highlighting
+- Host on S3/CloudFront
+- Support a markdown format close to Github flavor, or use: https://commonmark.org/help/
+
+
+Execution Options:
+
+- Vercel
+- Rust/Zola/Jekkyl??/Hyde theme
+- Custom code/Create React App
