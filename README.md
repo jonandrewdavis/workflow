@@ -77,9 +77,42 @@ https://wiki.archlinux.org/index.php/Libinput
 
 ### Oh My ZSH on Windows - WSL2 Alpine Instructions
 
+
+From "scratch", a blank Windows machine.
+
+We'll be getting:
+- WSL2
+- Alpine
+- Windows Terminal
+- ZSH
+
+
 Setting up WSL2, Windows Terminal and oh-my-zsh `https://blog.nillsf.com/index.php/2020/02/17/setting-up-wsl2-windows-terminal-and-oh-my-zsh/`
 
+- Windows Feature
+- Microsoft Store -> Alpine -> Install -> Launch
+- Install, provide `Enter new UNIX username` and password.
+- New Windows CMD window: 
+```
+wsl -l -v
+...
+wsl --set-version Alpine 2
+``` 
+- If you get: "WSL 2 requires an update to its kernel component."
+Go here: https://aka.ms/wsl2kernel
+```
+Download the latest package:
+    WSL2 Linux kernel update package for x64 machines
+```
+Sets Default:
+wsl --set-default-version 2
+
+Note: These steps could be transposed to avoid the kernal update.
+
+
+
 Microsoft Docs for WSL `https://docs.microsoft.com/en-us/windows/wsl/install-win10`
+
 
 Resource:  `https://nickjanetakis.com/blog/using-wsl-and-mobaxterm-to-create-a-linux-dev-environment-on-windows#wsl-conemu-and-mobaxterm-to-the-rescue`
 
