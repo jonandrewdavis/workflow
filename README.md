@@ -88,6 +88,8 @@ We'll be getting:
 
 
 Setting up WSL2, Windows Terminal and oh-my-zsh `https://blog.nillsf.com/index.php/2020/02/17/setting-up-wsl2-windows-terminal-and-oh-my-zsh/`
+Alternative guide: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
 
 - Windows Feature
 - Microsoft Store -> Alpine -> Install -> Launch
@@ -109,10 +111,25 @@ wsl --set-default-version 2
 
 Note: These steps could be transposed to avoid the kernal update.
 
+looks like when converting or setting as default i Need:
+Elevated Command prompt, right click, run as admin:
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.844
+
+Image Version: 10.0.19042.867
+
+Enabling feature(s)
+[==========================100.0%==========================]
+The operation completed successfully.
+
+C:\Windows\system32>
+```
 
 
 Microsoft Docs for WSL `https://docs.microsoft.com/en-us/windows/wsl/install-win10`
-
 
 Resource:  `https://nickjanetakis.com/blog/using-wsl-and-mobaxterm-to-create-a-linux-dev-environment-on-windows#wsl-conemu-and-mobaxterm-to-the-rescue`
 
