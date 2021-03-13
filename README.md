@@ -304,3 +304,11 @@ Execution Options:
 - Vercel
 - Rust/Zola/Jekkyl??/Hyde theme
 - Custom code/Create React App
+
+
+
+
+Adding and testing a new SSH key
+
+https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+
