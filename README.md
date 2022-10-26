@@ -1,4 +1,4 @@
-# workflow
+# workflow [DEPRECATED]
 
 A definitive guide to setting up a new work environment
 
@@ -64,7 +64,7 @@ A definitive guide to setting up a new work environment
 
 - Coming Soon
 
-### Startup for Linux:
+### Startup for Linux (remove):
 
 Guake, xmodmap -c ./Xmodmap
 
@@ -80,6 +80,17 @@ redshift 3000:3000
 ```
 https://wiki.archlinux.org/index.php/Libinput
 ```
+
+### ZSH Jump
+
+https://github.com/agkozak/zsh-z
+This script can be installed simply by downloading it and sourcing it from your .zshrc:
+
+```sh
+git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+```
+
+and add zsh-z to the line of your .zshrc that specifies plugins=(), e.g. plugins=( git zsh-z ).
 
 ### Exclude Node Modules from auto complete, to assist with TS, etc.
 
