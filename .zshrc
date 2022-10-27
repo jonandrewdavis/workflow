@@ -70,7 +70,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fasd zsh-autosuggestions k)
+plugins=(git zsh-autosuggestions autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,7 +124,9 @@ fixhosts() {
 alias sublime='"/mnt/c/Program Files/Sublime Text 3/subl.exe"'
 alias open='"explorer.exe"'
 alias gs='git status'
-alias j='fasd_cd -d'
 
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+
+alias gmake="/usr/bin/make"
