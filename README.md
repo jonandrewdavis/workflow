@@ -103,3 +103,10 @@ TODO: Command for copying in init.lua
     !abc:p — Print last command in history beginning with abc
 
 ```
+
+### Notes for M1 Mac set up
+
+- After installing `brew`, run: `echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.bash_profile && source ~/.bash_profile` and possibly source bash again.
+- 
+
+
