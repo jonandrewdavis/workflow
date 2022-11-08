@@ -107,6 +107,17 @@ TODO: Command for copying in init.lua
 ### Notes for M1 Mac set up
 
 - After installing `brew`, run: `echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.bash_profile && source ~/.bash_profile` and possibly source bash again.
-- 
+- Rough draft of commands
+
+
+```
+brew install zsh
+brew install autojump
+brew install neovim
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
 
 
