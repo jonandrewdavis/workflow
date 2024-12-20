@@ -1,0 +1,26 @@
+[window]
+
+opacity = 1
+
+padding.x = 10
+padding.y = 10
+
+decorations = "Full"
+decorations_theme_variant = "Dark"
+
+[font]
+
+normal = { family = "Iosevka Term", style = "Regular"}
+bold = { family = "Iosevka Term", style = "Bold"}
+italic = { family = "Iosevka Term", style = "Oblique"}
+bold_italic = { family = "Iosevka Term", style = "Regular"}
+
+size = 21.0
+
+[keyboard]
+
+
+bindings = [
+    { key = "Tab", mods = "Control", action = "SelectNextTab"},
+    { key = "Tab", mods = "Control|Shift", action = "SelectPreviousTab"}
+]
